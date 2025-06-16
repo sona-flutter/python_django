@@ -7,7 +7,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['email', 'username', 'password']
-        extra_kwargs = {'password': {'write_only': True}}  # password GET मध्ये दिसू नये
+        extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
         return CustomUser.objects.create_user(**validated_data)
@@ -22,3 +22,7 @@ class LoginSerializer(serializers.Serializer):
         if user:
             return user
         raise serializers.ValidationError("Invalid email or password")
+
+# ✅ 3. Forgot Password Serializer
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
