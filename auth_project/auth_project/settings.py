@@ -47,7 +47,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
-AUTH_USER_MODEL = 'accounts.CustomUser'
+
 
 
 MIDDLEWARE = [
@@ -87,13 +87,14 @@ WSGI_APPLICATION = 'auth_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'user_management_db',
+        'NAME': 'user_db',       # ✅ नवीन DB
         'USER': 'root',
-        'PASSWORD': '',  
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
+
 
 
 # Password validation
